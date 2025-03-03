@@ -1,0 +1,16 @@
+galaxy_info:
+  author: "Chebbi Talel Karim"
+  description: "Ansible role to install and configure New Relic for PHP, Infrastructure, and Logs monitoring on Debian"
+  company: "N/A"
+  license: "MIT"
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Debian
+  galaxy_tags:
+    - newrelic
+    - monitoring
+    - php
+    - infrastructure
+    - logs
+
+dependencies: []

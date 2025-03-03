@@ -1,0 +1,30 @@
+---
+- name: Install required dependencies
+  apt:
+    name:
+      - lsb-release
+      - ca-certificates
+    state: present
+    update_cache: yes
+
+- name: Download and install New Relic PHP Agent
+  shell: |
+    curl -Ls https://download.newrelic.com/php_agent/release/newrelic-php5_9.22.0.270_amd64.deb -o newrelic-php.deb
+    dpkg -i newrelic-php.deb
+    rm newrelic-php.deb
+
+- name: Configure New Relic PHP
+  template:
+    src: newrelic-php.ini.j2
+    dest: /etc/php/{{ php_version }}/cli/conf.d/99-newrelic.ini
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Restart PHP and Web Server
+  systemd:
+    name: "{{ item }}"
+    state: restarted
+  loop:
+    - php{{ php_version }}-fpm
+    - apache2

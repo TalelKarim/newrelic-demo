@@ -1,0 +1,9 @@
+---
+- name: Include tasks for Infrastructure monitoring
+  import_tasks: infra.yml
+
+- name: Include tasks for PHP monitoring
+  import_tasks: php.yml
+
+- name: Include tasks for Logs monitoring
+  import_tasks: logs.yml

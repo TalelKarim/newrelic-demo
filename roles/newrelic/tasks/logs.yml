@@ -1,0 +1,20 @@
+---
+- name: Install New Relic Log Forwarder
+  apt:
+    name: newrelic-infra
+    state: present
+    update_cache: yes
+
+- name: Configure New Relic Log Forwarding
+  template:
+    src: newrelic-infra.yml.j2
+    dest: /etc/newrelic-infra.yml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Restart New Relic Infrastructure Agent
+  systemd:
+    name: newrelic-infra
+    state: restarted
+    enabled: yes
