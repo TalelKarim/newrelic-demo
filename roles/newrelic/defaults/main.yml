@@ -1,4 +1,4 @@
-newrelic_license_key: "YOUR_NEW_RELIC_LICENSE_KEY"
+newrelic_license_key: "eu01xxfcd0626902f90d79aa3174e996FFFFNRAL"
 newrelic_application_name: "MyEurope1TestApplication"
 newrelic_environment: "staging"
 php_version: "8.2"
