@@ -12,15 +12,17 @@
     keyring: /usr/share/keyrings/newrelic-infra.gpg
 
 
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    
 - name: Add New Relic repository
   apt_repository:
     repo: "deb [signed-by=/usr/share/keyrings/newrelic-infra.gpg] https://download.newrelic.com/infrastructure_agent/linux/apt bullseye main"
     state: present
     filename: newrelic-infra
 
-- name: Update apt cache
-  apt:
-    update_cache: yes
 
 
 - name: Install New Relic Infrastructure Agent
